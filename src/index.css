@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.service-card {
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.service-card:hover::before {
+  opacity: 1;
+}
+.service-card .service-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 20;
+}
+.service-card:hover .service-content {
+  transform: translateY(0);
+}
+.service-card img {
+  transition: transform 0.3s ease;
+}
+.service-card:hover img {
+  transform: scale(1.1);
+}
